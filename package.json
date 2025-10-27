@@ -1,5 +1,17 @@
 {
   "name": "@stzhu/metro-ts-resolver",
+  "version": "0.1.0",
+  "description": "A custom Metro resolver that enables `.js` extensions for TypeScript imports",
+  "keywords": [
+    "metro",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevezhu/metro-ts-resolver.git"
+  },
+  "license": "MIT",
+  "author": "Steve Zhu <4130171+stevezhu@users.noreply.github.com>",
   "type": "module",
   "exports": {
     ".": {
@@ -13,16 +25,22 @@
       }
     }
   },
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
     "format": "prettier -w .",
-    "lint": "prettier -c . && eslint ."
+    "lint": "prettier -c . && eslint .",
+    "test": "tsc --noEmit"
   },
   "devDependencies": {
+    "@stzhu/eslint-config": "^0.8.1",
     "@stzhu/prettier-plugin-tsconfig": "^0.6.1",
     "@stzhu/tsconfig": "^0.1.0",
     "@types/node": "^24.9.1",
+    "eslint": "^9.38.0",
     "prettier": "^3.6.2",
     "prettier-plugin-packagejson": "^2.5.19",
     "tsup": "^8.5.0",
@@ -31,5 +49,9 @@
   "peerDependencies": {
     "metro-resolver": ">=0.83.0",
     "typescript": "5.x"
+  },
+  "packageManager": "pnpm@10.19.0",
+  "engines": {
+    "node": ">=20"
   }
 }
