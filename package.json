@@ -32,7 +32,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "format": "prettier -w .",
-    "lint": "prettier -c . && eslint ."
+    "lint": "prettier -c . && eslint .",
+    "test": "tsc --noEmit"
   },
   "devDependencies": {
     "@stzhu/eslint-config": "^0.8.1",
