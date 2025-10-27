@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "A custom Metro resolver that enables `.js` extensions for TypeScript imports",
   "keywords": [
+    "expo",
     "metro",
+    "react-native",
     "typescript"
   ],
   "repository": {
