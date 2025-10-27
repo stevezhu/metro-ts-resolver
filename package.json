@@ -35,9 +35,11 @@
     "lint": "prettier -c . && eslint ."
   },
   "devDependencies": {
+    "@stzhu/eslint-config": "^0.8.1",
     "@stzhu/prettier-plugin-tsconfig": "^0.6.1",
     "@stzhu/tsconfig": "^0.1.0",
     "@types/node": "^24.9.1",
+    "eslint": "^9.38.0",
     "prettier": "^3.6.2",
     "prettier-plugin-packagejson": "^2.5.19",
     "tsup": "^8.5.0",

@@ -1,6 +1,14 @@
 import { dirname } from 'node:path';
-import ts from 'typescript';
+
 import type { CustomResolver } from 'metro-resolver';
+import {
+  createCompilerHost,
+  findConfigFile,
+  parseJsonConfigFileContent,
+  readConfigFile,
+  resolveModuleName,
+  sys,
+} from 'typescript';
 
 export type CreateTsResolveRequestOptions = {
   /**
@@ -21,21 +29,21 @@ export function createTsResolveRequest({
   projectDir,
   tsconfigName = 'tsconfig.json',
 }: CreateTsResolveRequestOptions): CustomResolver {
-  const configPath = ts.findConfigFile(
+  const configPath = findConfigFile(
     projectDir,
-    ts.sys.fileExists,
+    sys.fileExists.bind(sys),
     tsconfigName,
   );
   if (!configPath) {
     throw new Error(`${tsconfigName} not found`);
   }
-  const configFile = ts.readConfigFile(configPath, ts.sys.readFile);
-  const parsedConfig = ts.parseJsonConfigFileContent(
+  const configFile = readConfigFile(configPath, sys.readFile.bind(sys));
+  const parsedConfig = parseJsonConfigFileContent(
     configFile.config,
-    ts.sys,
+    sys,
     dirname(configPath),
   );
-  const host = ts.createCompilerHost(parsedConfig.options);
+  const host = createCompilerHost(parsedConfig.options);
 
   return function resolveRequest(context, rawModuleName, platform) {
     const isOriginModuleTs =
@@ -43,7 +51,7 @@ export function createTsResolveRequest({
       context.originModulePath.endsWith('.tsx');
     const isJs = rawModuleName.endsWith('.js');
     if (isOriginModuleTs && isJs) {
-      const result = ts.resolveModuleName(
+      const result = resolveModuleName(
         rawModuleName,
         context.originModulePath,
         parsedConfig.options,
