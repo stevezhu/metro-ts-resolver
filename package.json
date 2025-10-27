@@ -1,5 +1,17 @@
 {
   "name": "@stzhu/metro-ts-resolver",
+  "version": "0.1.0",
+  "description": "A custom Metro resolver that enables `.js` extensions for TypeScript imports",
+  "keywords": [
+    "metro",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevezhu/metro-ts-resolver.git"
+  },
+  "license": "MIT",
+  "author": "Steve Zhu <4130171+stevezhu@users.noreply.github.com>",
   "type": "module",
   "exports": {
     ".": {
@@ -13,6 +25,9 @@
       }
     }
   },
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -31,5 +46,9 @@
   "peerDependencies": {
     "metro-resolver": ">=0.83.0",
     "typescript": "5.x"
+  },
+  "packageManager": "pnpm@10.19.0",
+  "engines": {
+    "node": ">=20"
   }
 }
