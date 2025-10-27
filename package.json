@@ -1,0 +1,35 @@
+{
+  "name": "@stzhu/metro-ts-resolver",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier -w .",
+    "lint": "prettier -c . && eslint ."
+  },
+  "devDependencies": {
+    "@stzhu/prettier-plugin-tsconfig": "^0.6.1",
+    "@stzhu/tsconfig": "^0.1.0",
+    "@types/node": "^24.9.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-packagejson": "^2.5.19",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "metro-resolver": ">=0.83.0",
+    "typescript": "5.x"
+  }
+}
