@@ -60,7 +60,7 @@ export function createTsResolveRequest({
       if (result.resolvedModule) {
         return context.resolveRequest(
           context,
-          rawModuleName.replace('.js', ''),
+          rawModuleName.replace('.js', result.resolvedModule.extension),
           platform,
         );
       }
