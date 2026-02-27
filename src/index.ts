@@ -58,9 +58,14 @@ export function createTsResolveRequest({
         host,
       );
       if (result.resolvedModule) {
+        const { resolvedFileName, extension } = result.resolvedModule;
+        const filePathWithoutExtension = resolvedFileName.slice(
+          0,
+          -extension.length,
+        );
         return context.resolveRequest(
           context,
-          rawModuleName.replace('.js', result.resolvedModule.extension),
+          filePathWithoutExtension,
           platform,
         );
       }
