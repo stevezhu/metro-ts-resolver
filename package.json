@@ -17,13 +17,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
       "require": {
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     }
   },
@@ -31,28 +31,28 @@
     "dist/*"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
     "format": "prettier -w .",
     "lint": "prettier -c . && eslint .",
     "test": "tsc --noEmit"
   },
   "devDependencies": {
-    "@stzhu/eslint-config": "^0.8.1",
-    "@stzhu/prettier-plugin-tsconfig": "^0.6.1",
-    "@stzhu/tsconfig": "^0.1.0",
-    "@types/node": "^24.9.1",
-    "eslint": "^9.38.0",
-    "prettier": "^3.6.2",
-    "prettier-plugin-packagejson": "^2.5.19",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.3"
+    "@stzhu/eslint-config": "^0.10.0",
+    "@stzhu/prettier-plugin-tsconfig": "^0.7.3",
+    "@stzhu/tsconfig": "^0.4.0",
+    "@types/node": "^25.5.2",
+    "eslint": "^10.2.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-packagejson": "^3.0.2",
+    "tsdown": "^0.21.7",
+    "typescript": "^6.0.2"
   },
   "peerDependencies": {
     "metro-resolver": ">=0.83.0",
     "typescript": "5.x"
   },
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=20"
   }
