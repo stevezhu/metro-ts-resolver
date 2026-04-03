@@ -8,12 +8,15 @@
     "react-native",
     "typescript"
   ],
+  "license": "MIT",
+  "author": "Steve Zhu <4130171+stevezhu@users.noreply.github.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stevezhu/metro-ts-resolver.git"
   },
-  "license": "MIT",
-  "author": "Steve Zhu <4130171+stevezhu@users.noreply.github.com>",
+  "files": [
+    "dist/*"
+  ],
   "type": "module",
   "exports": {
     ".": {
@@ -27,24 +30,19 @@
       }
     }
   },
-  "files": [
-    "dist/*"
-  ],
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "format": "prettier -w .",
-    "lint": "prettier -c . && eslint .",
+    "format": "oxfmt && eslint . --fix",
+    "lint": "oxfmt --check && eslint .",
     "test": "tsc --noEmit"
   },
   "devDependencies": {
     "@stzhu/eslint-config": "^0.10.0",
-    "@stzhu/prettier-plugin-tsconfig": "^0.7.3",
     "@stzhu/tsconfig": "^0.4.0",
     "@types/node": "^25.5.2",
     "eslint": "^10.2.0",
-    "prettier": "^3.8.1",
-    "prettier-plugin-packagejson": "^3.0.2",
+    "oxfmt": "^0.43.0",
     "tsdown": "^0.21.7",
     "typescript": "^6.0.2"
   },
@@ -52,8 +50,8 @@
     "metro-resolver": ">=0.83.0",
     "typescript": "5.x"
   },
-  "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=20"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }
