@@ -8,52 +8,50 @@
     "react-native",
     "typescript"
   ],
+  "license": "MIT",
+  "author": "Steve Zhu <4130171+stevezhu@users.noreply.github.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stevezhu/metro-ts-resolver.git"
   },
-  "license": "MIT",
-  "author": "Steve Zhu <4130171+stevezhu@users.noreply.github.com>",
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    }
-  },
   "files": [
     "dist/*"
   ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "format": "prettier -w .",
-    "lint": "prettier -c . && eslint .",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "format": "oxfmt && eslint . --fix",
+    "lint": "oxfmt --check && eslint .",
     "test": "tsc --noEmit"
   },
   "devDependencies": {
-    "@stzhu/eslint-config": "^0.8.1",
-    "@stzhu/prettier-plugin-tsconfig": "^0.6.1",
-    "@stzhu/tsconfig": "^0.1.0",
-    "@types/node": "^24.9.1",
-    "eslint": "^9.38.0",
-    "prettier": "^3.6.2",
-    "prettier-plugin-packagejson": "^2.5.19",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.3"
+    "@stzhu/eslint-config": "^0.10.0",
+    "@stzhu/tsconfig": "^0.4.0",
+    "@types/node": "^25.5.2",
+    "eslint": "^10.2.0",
+    "oxfmt": "^0.43.0",
+    "tsdown": "^0.21.7",
+    "typescript": "^6.0.2"
   },
   "peerDependencies": {
     "metro-resolver": ">=0.83.0",
     "typescript": "5.x"
   },
-  "packageManager": "pnpm@10.19.0",
   "engines": {
     "node": ">=20"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }
