@@ -67,7 +67,7 @@ The resolver respects your `tsconfig.json` configuration, including `paths`, `ba
 ## Requirements
 
 - Metro >= 0.83.0
-- TypeScript 5.x
+- TypeScript 5.x or 6.x
 
 ## References
 
